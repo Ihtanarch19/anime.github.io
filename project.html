@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Anime - website design</title>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          box-sizing: border-box;
+        }
+        .login
+        {
+            border-radius: 50px;
+            margin-left: 80px;
+            background: linear-gradient(to top,rgb(19, 7, 96),rgb(55, 5, 83));
+        }
+        /* Set a style for all buttons */
+        button {
+          background-color: #04AA6D;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+        }
+        
+        button:hover {
+          opacity: 0.8;
+        }
+        
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+          width: auto;
+          padding: 10px 18px;
+          background-color: #f44336;
+        }
+        
+        /* Center the image and position the close button */
+        .imgcontainer {
+          text-align: center;
+          margin: 24px 0 12px 0;
+          position: relative;
+        }
+        
+        img.avatar {
+          width: 250px;
+          border-radius: 30%;
+          height:250px ;
+        }
+        
+        .container {
+          padding: 16px;
+        }
+        
+        span.psw {
+          float: right;
+          padding-top: 16px;
+        }
+        
+        /* The Modal (background) */
+        .modal {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Sit on top */
+          left: 0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); /* Fallback color */
+          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+          padding-top: 60px;
+          background: linear-gradient(to left,rgb(4, 4, 129),rgb(4, 102, 64));
+          /*background-color:#045d5a;*/
+        }
+        
+        /* Modal Content/Box */
+        .modal-content {
+        background: linear-gradient(to top,rgb(15, 3, 105),rgb(16, 3, 71));
+        
+          margin: 3% auto 10% auto; /* 5% from the top, 15% from the bottom and centered */
+          border: 1px solid #888;
+          width: 70%; /* Could be more or less, depending on screen size */
+        }
+        
+        /* The Close Button (x) */
+        .close {
+          position: absolute;
+          right: 25px;
+          top: 0;
+          color: #000;
+          font-size: 35px;
+          font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+          color: red;
+          cursor: pointer;
+        }
+        
+        /* Add Zoom Animation */
+        .animate {
+          -webkit-animation: animatezoom 0.6s;
+          animation: animatezoom 0.6s
+        }
+        
+        @-webkit-keyframes animatezoom {
+          from {-webkit-transform: scale(0)} 
+          to {-webkit-transform: scale(1)}
+        }
+          
+        @keyframes animatezoom {
+          from {transform: scale(0)} 
+          to {transform: scale(1)}
+        }
+        
+        /* Change styles for span and cancel button on extra small screens */
+        @media screen and (max-width: 300px) {
+          span.psw {
+             display: block;
+             float: none;
+          }
+          .cancelbtn {
+             width: 100%;
+          }
+        }
+        </style>
+</head>
+ 
+<body>
+    <!-- Navbar section -->
+    <navbar id="Navbar">
+        <img src="/logo.png" alt="" id="logo">
+        <ul>
+            <li><a href="#">Home</a> </li>
+            <li><a href="#">About</a> </li>
+ 
+            <div id="categories">
+                <li><a href="#">Categories <i class="fas fa-caret-down"></i></a></li>
+                <div id="drop-down-box">
+                    <a href="#">Shonen</a>
+                    <a href="#">Shojo</a>
+                    <a href="#">Seinen</a>
+                    <a href="#">Josei</a>
+                    <a href="#">Kodomomuke</a>
+                </div>
+            </div>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div id="other-opt">
+            <div class="search">
+                <input type="search" name="search" id="search" placeholder="Search...">
+                <i class="fas fa-search"></i>
+            </div>
+            <button id="signIn">Sign in</button>
+        </div>
+
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="login">Login</button>
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="/goju.jpg" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+        <img src="/menu.png" alt="Menu Png" id="Menu-Btn">
+    </navbar>
+ 
+    <nav id="Other-Navbar">
+        <ul>
+            <li><a href="#">Home</a> </li>
+            <li><a href="#">About</a> </li>
+ 
+            <div id="categories">
+                <li><a href="#">Categories <i class="fas fa-caret-down"></i></a></li>
+                <div id="drop-down-box">
+                    <a href="#">Shonen</a>
+                    <a href="#">Shojo</a>
+                    <a href="#">Seinen</a>
+                    <a href="#">Josei</a>
+                    <a href="#">Kodomomuke</a>
+                </div>
+            </div>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="Othersearch" style="margin: auto;">
+            <input type="search" name="search" id="Othersearch" placeholder="Search...">
+            <i class="fas fa-search"></i>
+        </div>
+    </nav>
+ <!-- Navbar section -->
+ 
+ 
+<!-- Slide section -->
+    <div class="slides-box">
+ 
+        <div class="slider">
+            <div class="slides">
+                <div class="slide first" id="first">
+                    <!-- <img src="./image/AOT banner.jpg" alt=""> -->
+                </div>
+                <div class="slide second">
+                    <!-- <img src="./image/fate long banner.png" alt=""> -->
+                </div>
+                <div class="slide third">
+                    <!-- <img src="./image/yourname banner.jpg" alt=""> -->
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    </div>
+<!-- Slide section -->
+ 
+ 
+    <!-- ALL SHOWS  -->
+    <div id="AllBanners">
+        <div id="primaryMainContainer">
+ 
+            <div id="contentBanners">
+                <!-- For Trending Now  -->
+                    <div id="MainContainer">
+                            <div id="Heading-box">
+                                <div class="heading">Trending Now</div>
+                                <div class="viewAll">view all
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                           </div>
+ 
+                            <div id="Banners-container">
+                                <div class="Image-Name">
+                                    <img src="/fate.jpg" alt="Fate stye night">
+                                    <span class="ep">06/16</span>
+                                    <span class="comments"><i class="fas fa-comments"></i>11</span>
+                                    <span class="watch"><i class="far fa-eye"></i> 9987</span>
+                                    <div class="content-type">
+                                        <span class="action">Action</span>
+                                        <span class="adventure">Adventure</span>
+                                    </div>
+                                    <div class="show-name">
+                                        Fate Stay Night:Unlimited blade works
+                                    </div>
+                                </div>
+                                <div class="Image-Name">
+                                    <img src="/future diary.jpg" alt="">
+                                    <span class="ep">06/16</span>
+                                    <span class="comments"><i class="fas fa-comments"></i>11</span>
+                                    <span class="watch"><i class="far fa-eye"></i> 9987</span>
+                                    <div class="content-type">
+                                        <span class="action">Action</span>
+                                        <span class="adventure">Adventure</span>
+                                    </div>
+                                    <div class="show-name">
+                                        Future diary
+                                    </div>
+                                </div>
+                                <div class="Image-Name">
+                                    <img src="/DAB.jpg" alt="">
+                                    <span class="ep">06/16</span>
+                                    <span class="comments"><i class="fas fa-comments"></i>11</span>
+                                    <span class="watch"><i class="far fa-eye"></i> 9987</span>
+                                    <div class="content-type">
+                                        <span class="action">Action</span>
+                                        <span class="adventure">Adventure</span>
+                                    </div>
+                                    <div class="show-name">
+                                        Date a bullet
+                                    </div>
+                                </div>
+                                <div class="Image-Name">
+                                    <img src="/erased.jpeg" alt="">
+                                    <span class="ep">06/16</span>
+                                    <span class="comments"><i class="fas fa-comments"></i>11</span>
+                                    <span class="watch"><i class="far fa-eye"></i> 9987</span>
+                                    <div class="content-type">
+                                        <span class="action">Action</span>
+                                        <span class="adventure">Adventure</span>
+                                    </div>
+                                    <div class="show-name">
+                                        Erased
+                                    </div>
+                                </div>
+                                <div class="Image-Name">
+                                    <img src="/MHA.jpg" alt="">
+                                    <span class="ep">06/16</span>
+                                    <span class="comments"><i class="fas fa-comments"></i>11</span>
+                                    <span class="watch"><i class="far fa-eye"></i> 9987</span>
+                                    <div class="content-type">
+                                        <span class="action">Action</span>
+                                        <span class="adventure">Adventure</span>
+                                    </div>
+                                    <div class="show-name">
+                                        My Hero Acadmia
+                                    </div>
+                                </div>
+                                <div class="Image-Name">
+                                    <img src="death note.jfif" alt="">
+                                    <span class="ep">06/16</span>
+                                    <span class="comments"><i class="fas fa-comments"></i>11</span>
+                                    <span class="watch"><i class="far fa-eye"></i> 9987</span>
+                                    <div class="content-type">
+                                        <span class="action">Action</span>
+                                        <span class="adventure">Adventure</span>
+                                    </div>
+                                    <div class="show-name">
+                                        Death Note
+                                    </div>
+                                </div>
+                            </div>
+                       </div>
+                    <!-- For Trending Now  -->
+ 
+                    <!-- Popular Shows  -->
+                    <div id="MainContainer">
+                        <!-- <div id="insideMainContainer"> -->
+                            <div id="Heading-box">
+                                <div class="heading">Popular Shows</div>
+                                <div class="viewAll">view all
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </div>
+ 
+                            <div id="Banners-container">
+                                <div class="Image-Name">
+                                    <img src="/classroom.jfif" alt="Fate stye night">
+                                    <span class="ep">06/16</span>
+                                    <span class="comments"><i class="fas fa-comments"></i>11</span>
+                                    <span class="watch"><i class="far fa-eye"></i> 9987</span>
+                                    <div class="content-type">
+                                        <span class="action">Action</span>
+                                        <span class="adventure">Adventure</span>
+                                    </div>
+                                    <div class="show-name">
+                                        Classroom of the Elite
+                                    </div>
+                                </div>
+                                <div class="Image-Name">
+                                    <img src="/human lost.jfif" alt="">
+                                    <span class="ep">06/16</span>
+                                    <span class="comments"><i class="fas fa-comments"></i>11</span>
+                                    <span class="watch"><i class="far fa-eye"></i> 9987</span>
+                                    <div class="content-type">
+                                        <span class="action">Action</span>
+                                        <span class="adventure">Adventure</span>
+                                    </div>
+                                    <div class="show-name">
+                                        Human Lost
+                                    </div>
+                                </div>
+                                <div class="Image-Name">
+                                    <img src="/your lie in april.jpg" alt="">
+                                    <span class="ep">06/16</span>
+                                    <span class="comments"><i class="fas fa-comments"></i>11</span>
+                                    <span class="watch"><i class="far fa-eye"></i> 9987</span>
+                                    <div class="content-type">
+                                        <span class="action">Action</span>
+                                        <span class="adventure">Adventure</span>
+                                    </div>
+                                    <div class="show-name">
+                                        Your lie in April
+                                    </div>
+                                </div>
+                                <div class="Image-Name">
+                                    <img src="/yourname.jpg" alt="">
+                                    <span class="ep">06/16</span>
+                                    <span class="comments"><i class="fas fa-comments"></i>11</span>
+                                    <span class="watch"><i class="far fa-eye"></i> 9987</span>
+                                    <div class="content-type">
+                                        <span class="action">Action</span>
+                                        <span class="adventure">Adventure</span>
+                                    </div>
+                                    <div class="show-name">
+                                        YourName
+                                    </div>
+                                </div>
+                                <div class="Image-Name">
+                                    <img src="/mugen train.jpg" alt="">
+                                    <span class="ep">06/16</span>
+                                    <span class="comments"><i class="fas fa-comments"></i>11</span>
+                                    <span class="watch"><i class="far fa-eye"></i> 9987</span>
+                                    <div class="content-type">
+                                        <span class="action">Action</span>
+                                        <span class="adventure">Adventure</span>
+                                    </div>
+                                    <div class="show-name">
+                                        Demon Slayer:Mugen Train
+                                    </div>
+                                </div>
+                                <div class="Image-Name">
+                                    <img src="/AOT.jfif" alt="">
+                                    <span class="ep">06/16</span>
+                                    <span class="comments"><i class="fas fa-comments"></i>11</span>
+                                    <span class="watch"><i class="far fa-eye"></i> 9987</span>
+                                    <div class="content-type">
+                                        <span class="action">Action</span>
+                                        <span class="adventure">Adventure</span>
+                                    </div>
+                                    <div class="show-name">
+                                        Attack on titan:Season 4
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                    <!-- Popular Shows -->
+ 
+                    <!-- Recently added  -->
+                    <div id="MainContainer">
+                        <!-- <div id="insideMainContainer"> -->
+                            <div id="Heading-box">
+                                <div class="heading">Recently added</div>
+                                <div class="viewAll">view all
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </div>
+ 
+                            <div id="Banners-container">
+                                <div class="Image-Name">
+                                    <img src="/I want to eat you pancreas.jfif" alt="Fate stye night">
+                                    <span class="ep">06/16</span>
+                                    <span class="comments"><i class="fas fa-comments"></i>11</span>
+                                    <span class="watch"><i class="far fa-eye"></i> 9987</span>
+                                    <div class="content-type">
+                                        <span class="action">Action</span>
+                                        <span class="adventure">Adventure</span>
+                                    </div>
+                                    <div class="show-name">
+                                        I want to eat your pancreas
+                                    </div>
+                                </div>
+                                <div class="Image-Name">
+                                    <img src="/ne zha.jpg" alt="">
+                                    <span class="ep">06/16</span>
+                                    <span class="comments"><i class="fas fa-comments"></i>11</span>
+                                    <span class="watch"><i class="far fa-eye"></i> 9987</span>
+                                    <div class="content-type">
+                                        <span class="action">Action</span>
+                                        <span class="adventure">Adventure</span>
+                                    </div>
+                                    <div class="show-name">
+                                        Ne Zha
+                                    </div>
+                                </div>
+                                <div class="Image-Name">
+                                    <img src="/MHA movie.jpg" alt="">
+                                    <span class="ep">06/16</span>
+                                    <span class="comments"><i class="fas fa-comments"></i>11</span>
+                                    <span class="watch"><i class="far fa-eye"></i> 9987</span>
+                                    <div class="content-type">
+                                        <span class="action">Action</span>
+                                        <span class="adventure">Adventure</span>
+                                    </div>
+                                    <div class="show-name">
+                                        My Hero Acadmia:Ultimate heros
+                                    </div>
+                                </div>
+                                <div class="Image-Name">
+                                    <img src="/sprirted away movie.jpg" alt="">
+                                    <span class="ep">06/16</span>
+                                    <span class="comments"><i class="fas fa-comments"></i>11</span>
+                                    <span class="watch"><i class="far fa-eye"></i> 9987</span>
+                                    <div class="content-type">
+                                        <span class="action">Action</span>
+                                        <span class="adventure">Adventure</span>
+                                    </div>
+                                    <div class="show-name">
+                                        Spirited away
+                                    </div>
+                                </div>
+                                <div class="Image-Name">
+                                    <img src="/AOT movie.jpg" alt="">
+                                    <span class="ep">06/16</span>
+                                    <span class="comments"><i class="fas fa-comments"></i>11</span>
+                                    <span class="watch"><i class="far fa-eye"></i> 9987</span>
+                                    <div class="content-type">
+                                        <span class="action">Action</span>
+                                        <span class="adventure">Adventure</span>
+                                    </div>
+                                    <div class="show-name">
+                                        Attack on titan:Chronicle
+                                    </div>
+                                </div>
+                                <div class="Image-Name">
+                                    <img src="/yourname.jpg" alt="">
+                                    <span class="ep">06/16</span>
+                                    <span class="comments"><i class="fas fa-comments"></i>11</span>
+                                    <span class="watch"><i class="far fa-eye"></i> 9987</span>
+                                    <div class="content-type">
+                                        <span class="action">Action</span>
+                                        <span class="adventure">Adventure</span>
+                                    </div>
+                                    <div class="show-name">
+                                        YourName
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+ 
+            </div>
+            <!-- Recently added -->
+ 
+ 
+            <!-- Latest News -->
+            <div id="LatestNews">
+                <div id="LatestNewsSection">
+                    <div id="insideLatestNews">
+ 
+                        <div id="Heading-box2">
+                            <div class="headingInNews">Latest News</div>
+                            <div class="viewAllInNews">view all
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                     
+                    <div id="LatestNewses">
+                        <div id="ImageOfNews" style="margin: 0;">
+                            <span class="epInNews">06/16</span>
+                                <span class="watchInNews"><i class="far fa-eye"></i> 9987</span>
+                            <img src="/boruto wide banner.jfif" alt="">
+                            <span class="name">
+                                Boruto : Next generation
+                            </span>
+                        </div>
+                        <div id="ImageOfNews">
+                            <span class="epInNews">06/16</span>
+                                <span class="watchInNews"><i class="far fa-eye"></i> 9987</span>
+                            <img src="/erased wide banner.jpeg" alt="">
+                            <span class="name">
+                                Erased
+                            </span>
+                        </div>
+                        <div id="ImageOfNews">
+                            <span class="epInNews">06/16</span>
+                                <span class="watchInNews"><i class="far fa-eye"></i> 9987</span>
+                            <img src="/MHA banner.jfif" alt="">
+                            <span class="name">
+                                My Hero Acadmia : The Movie
+                            </span>
+                        </div>
+                        <div id="ImageOfNews">
+                            <span class="epInNews">06/16</span>
+                                <span class="watchInNews"><i class="far fa-eye"></i> 9987</span>
+                            <img src="/mugen train wide banner.jpg" alt="">
+                            <span class="name">
+                                demon slayer:Mugen train
+                            </span>
+                        </div>
+                        <div id="ImageOfNews">
+                            <span class="epInNews">06/16</span>
+                                <span class="watchInNews"><i class="far fa-eye"></i> 9987</span>
+                            <img src="/classroom wide banner.jfif" alt="">
+                            <span class="name">
+                                Classroom of the Elite
+                            </span>
+                        </div>
+                        <div id="ImageOfNews">
+                            <span class="epInNews">06/16</span>
+                                <span class="watchInNews"><i class="far fa-eye"></i> 9987</span>
+                            <img src="/death note wide banner.jfif" alt="">
+                            <span class="name">
+                                Death Note
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Latest News -->
+ 
+        </div>
+    </div>
+ 
+    </div>
+<!-- ALL SHOWS  -->
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+
+ 
+ 
+</body>
+<script src="script.js"></script>
+ 
+</html>
